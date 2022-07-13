@@ -13,6 +13,7 @@ class AccumulatorApplicationTests {
 
     @Test
     void contextLoads() {
+        System.out.println("hello world");
     }
 
 }

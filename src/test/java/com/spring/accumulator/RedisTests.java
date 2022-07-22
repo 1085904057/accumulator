@@ -1,4 +1,4 @@
-package com.spring.accumulator.accumulator;
+package com.spring.accumulator;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +11,9 @@ import org.springframework.data.redis.core.SessionCallback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -25,6 +27,17 @@ public class RedisTests {
         String redisKey = "test:value";
         redisTemplate.opsForValue().set(redisKey, "hello");
         Object result = redisTemplate.opsForValue().get(redisKey);
+        System.out.println(result);
+    }
+
+    @Test
+    public void testRedisSet() {
+        String redisKey = "test:set";
+        Set<String> set = new HashSet<>();
+        set.add(null);
+        redisTemplate.delete(redisKey);
+        redisTemplate.opsForSet().add(redisKey, set.toArray());
+        Object result = redisTemplate.opsForSet().members(redisKey);
         System.out.println(result);
     }
 

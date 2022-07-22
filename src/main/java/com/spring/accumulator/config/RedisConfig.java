@@ -1,4 +1,4 @@
-package com.spring.accumulator.accumulator.config;
+package com.spring.accumulator.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

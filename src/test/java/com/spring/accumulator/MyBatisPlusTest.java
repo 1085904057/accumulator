@@ -15,6 +15,7 @@ import javax.annotation.Resource;
 @SpringBootTest
 @ContextConfiguration(classes = AccumulatorApplication.class)
 public class MyBatisPlusTest {
+
     @Resource
     private PersonMapper personMapper;
 

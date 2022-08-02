@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.accumulator.dao.PersonMapper">
+    <insert id="batchInsert" parameterType="list">
+        insert into wangrubin_db.person
+        (name, age, male)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.name},
+            #{item.age},
+            #{item.male}
+            )
+        </foreach>
+    </insert>
+</mapper>

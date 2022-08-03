@@ -16,13 +16,13 @@ public class ImportController {
     private ExcelComponent excelComponent;
 
     @PostMapping("/import-person")
-    public Boolean importExcel(@RequestParam("file") MultipartFile file) throws IOException {
+    public Boolean importPerson(@RequestParam("file") MultipartFile file) throws IOException {
         excelComponent.importPersonFile(file);
         return true;
     }
 
     @GetMapping("/export-person")
-    public void importExcel(HttpServletResponse response) {
+    public void exportPerson(HttpServletResponse response) {
         excelComponent.exportPersonFile(response);
     }
 }

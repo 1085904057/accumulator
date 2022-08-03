@@ -4,8 +4,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.spring.accumulator.entity.PersonPO;
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.List;
-
 /**
  * (Person)表数据库访问层
  *
@@ -14,6 +12,5 @@ import java.util.List;
  */
 @Mapper
 public interface PersonMapper extends BaseMapper<PersonPO>, BatchInsertMapper<PersonPO> {
-    void batchInsert(List<PersonPO> list);
 }
 

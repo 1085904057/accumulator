@@ -1,6 +1,6 @@
 package com.spring.accumulator.common.response;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,11 +13,26 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class ResponseResult<T> {
     private int code;
     private String message;
     private T data;
+    @JsonIgnore
+    private String log;
+
+    public ResponseResult(int code, String message, T data) {
+        this.code = code;
+        this.message = message;
+        this.data = data;
+    }
+
+    public String getLog() {
+        return log;
+    }
+
+    public void setLog(String log) {
+        this.log = log;
+    }
 
     public static <T> ResponseResult<T> success(T data) {
         return success("success", data);

@@ -1,4 +1,4 @@
-package com.spring.accumulator.io.excel;
+package com.spring.accumulator.component.excel;
 
 import com.alibaba.excel.EasyExcel;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;

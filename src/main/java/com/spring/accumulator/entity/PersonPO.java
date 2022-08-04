@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
 
-import com.spring.accumulator.io.excel.GenderConverter;
+import com.spring.accumulator.component.excel.GenderConverter;
 import lombok.NoArgsConstructor;
 import lombok.Data;
 

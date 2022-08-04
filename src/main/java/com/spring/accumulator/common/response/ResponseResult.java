@@ -18,10 +18,10 @@ public class ResponseResult<T> {
     private String message;
     private T data;
     /**
-     * 自定义日志：记录差异化的操作日志
+     * 业务日志
      */
     @JsonIgnore
-    private String customLog;
+    private String businessLog;
 
     public ResponseResult(int code, String message, T data) {
         this.code = code;
@@ -29,12 +29,12 @@ public class ResponseResult<T> {
         this.data = data;
     }
 
-    public String getCustomLog() {
-        return customLog;
+    public String getBusinessLog() {
+        return businessLog;
     }
 
-    public void setCustomLog(String customLog) {
-        this.customLog = customLog;
+    public void setBusinessLog(String businessLog) {
+        this.businessLog = businessLog;
     }
 
     public static <T> ResponseResult<T> success(T data) {

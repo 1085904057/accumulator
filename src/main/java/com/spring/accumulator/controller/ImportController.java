@@ -47,27 +47,27 @@ public class ImportController {
         return ResponseResult.success(page);
     }
 
-    @LogAnnotation(type = EnumLogType.INSERT, commonLog = "新增人员")
+    @LogAnnotation(type = EnumLogType.INSERT, operateLog = "新增人员")
     @PostMapping("/add")
     public ResponseResult<Boolean> addPerson(@RequestBody PersonPO personPO) {
         personPO.setId(null);
         personMapper.insert(personPO);
         ResponseResult<Boolean> result = ResponseResult.success(true);
-        result.setCustomLog("人员ID:" + personPO.getId());
+        result.setBusinessLog("人员ID:" + personPO.getId());
         return result;
     }
 
-    @LogAnnotation(type = EnumLogType.UPDATE, commonLog = "修改人员")
+    @LogAnnotation(type = EnumLogType.UPDATE, operateLog = "修改人员")
     @PostMapping("/modify")
     public ResponseResult<Boolean> modifyPerson(@RequestBody PersonPO personPO) {
         Assert.isTrue(personPO.getId() != null, "修改人员的ID不能为空");
         personMapper.updateById(personPO);
         ResponseResult<Boolean> result = ResponseResult.success(true);
-        result.setCustomLog("人员ID:" + personPO.getId());
+        result.setBusinessLog("人员ID:" + personPO.getId());
         return result;
     }
 
-    @LogAnnotation(type = EnumLogType.DELETE, commonLog = "删除人员,ID:{#id}")
+    @LogAnnotation(type = EnumLogType.DELETE, operateLog = "删除人员,ID:{#id}", containsParam = true)
     @PostMapping("/delete/{id}")
     public ResponseResult<Boolean> deletePerson(@PathVariable Long id) {
         personMapper.deleteById(id);

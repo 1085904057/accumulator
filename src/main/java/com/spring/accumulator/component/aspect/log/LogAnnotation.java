@@ -21,7 +21,12 @@ public @interface LogAnnotation {
     EnumLogType type();
 
     /**
-     * 通用日志：记录没有差异化的操作日志
+     * 操作日志
      */
-    String commonLog();
+    String operateLog();
+
+    /**
+     * 操作日志中是否包含形参
+     */
+    boolean containsParam() default false;
 }

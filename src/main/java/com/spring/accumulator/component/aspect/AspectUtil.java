@@ -75,7 +75,7 @@ public class AspectUtil {
         // 创建表达式
         Expression expression = PARSER.parseExpression(format, PARSER_CONTEXT);
 
-        // 获取方法名和方法参数
+        // 获取方法参数的名称和值
         String[] paramNames = NAME_DISCOVERER.getParameterNames(((MethodSignature) joinPoint.getSignature()).getMethod());
         Object[] methodArgs = joinPoint.getArgs();
         Assert.isTrue(paramNames != null && paramNames.length == methodArgs.length, "方法参数不匹配");

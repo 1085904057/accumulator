@@ -17,8 +17,11 @@ public class ResponseResult<T> {
     private int code;
     private String message;
     private T data;
+    /**
+     * 自定义日志：记录差异化的操作日志
+     */
     @JsonIgnore
-    private String log;
+    private String customLog;
 
     public ResponseResult(int code, String message, T data) {
         this.code = code;
@@ -26,12 +29,12 @@ public class ResponseResult<T> {
         this.data = data;
     }
 
-    public String getLog() {
-        return log;
+    public String getCustomLog() {
+        return customLog;
     }
 
-    public void setLog(String log) {
-        this.log = log;
+    public void setCustomLog(String customLog) {
+        this.customLog = customLog;
     }
 
     public static <T> ResponseResult<T> success(T data) {

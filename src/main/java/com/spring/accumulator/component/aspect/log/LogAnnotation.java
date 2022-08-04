@@ -21,7 +21,7 @@ public @interface LogAnnotation {
     EnumLogType type();
 
     /**
-     * 日志描述，默认为空
+     * 通用日志：记录没有差异化的操作日志
      */
-    String description();
+    String commonLog();
 }

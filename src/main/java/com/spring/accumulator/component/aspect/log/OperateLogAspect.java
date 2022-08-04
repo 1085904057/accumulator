@@ -50,11 +50,11 @@ public class OperateLogAspect {
 
             Integer operateType = logAnnotation.type().getCode();
             StringBuilder logBuilder = new StringBuilder();
-            logBuilder.append(logAnnotation.description());
+            logBuilder.append(AspectUtil.formatLog(logAnnotation.commonLog(), joinPoint));
             if (result instanceof ResponseResult) {
                 ResponseResult<?> responseResult = (ResponseResult<?>) result;
-                if (StringUtils.isNotBlank(responseResult.getLog())) {
-                    logBuilder.append(":").append(responseResult.getLog());
+                if (StringUtils.isNotBlank(responseResult.getCustomLog())) {
+                    logBuilder.append(":").append(responseResult.getCustomLog());
                 }
             }
 

@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
 /**
- * 操作日志记录切面
+ * 操作日志记录的切面
  *
  * @author wangrubin
  * @date 2022-08-04
@@ -31,7 +31,7 @@ public class OperateLogAspect {
     private OperateLogMapper logMapper;
 
     /**
-     * 定义切入点：有一组带有LogAnnotation注解的方法组成
+     * 定义切入点：由一组带有LogAnnotation注解的方法组成
      */
     @Pointcut("@annotation(com.spring.accumulator.component.aspect.log.LogAnnotation)")
     public void logPointCut() {

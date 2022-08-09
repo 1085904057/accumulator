@@ -15,7 +15,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
 @EnableOpenApi // 可选
-@EnableWebMvc // spring-boot-starter-web冲突会引发启动null，必要
+@EnableWebMvc // spring-boot-starter-web冲突会引发启动服务时null，必选
 public class SwaggerConfig {
 
     @Value("${swagger.enable:true}")
@@ -23,7 +23,7 @@ public class SwaggerConfig {
 
     @Bean
     public Docket createRestApi() {
-        return new Docket(DocumentationType.OAS_30)
+        return new Docket(DocumentationType.OAS_30)  // 3.0要选择OAS_30
                 .apiInfo(apiInfo())
                 .enable(enable)
                 .select()

@@ -26,4 +26,14 @@ public class MyBatisPlusTest {
         PersonPO personPo = personMapper.selectOne(queryWrapper);
         System.out.println(personPo);
     }
+
+    @Test
+    public void testInsert() {
+        PersonPO personPO = new PersonPO();
+        personPO.setMale(1);
+        personPO.setName("王五");
+        personPO.setAge(17);
+        int s = personMapper.insert(personPO);
+        System.out.println(s);
+    }
 }

@@ -60,7 +60,7 @@ public class PersonController {
     public ResponseResult<Page<PersonPO>> listPerson(@RequestParam Integer current,
                                                      @RequestParam Integer size) {
         Page<PersonPO> page = new Page<>(current, size);
-        page = personMapper.selectPage(page, Wrappers.emptyWrapper());
+        page = (Page<PersonPO>) personMapper.selectPage(page, Wrappers.emptyWrapper());
         return ResponseResult.success(page);
     }
 

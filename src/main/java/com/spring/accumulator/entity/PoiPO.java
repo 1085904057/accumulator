@@ -14,7 +14,7 @@ import org.locationtech.jts.geom.Point;
  * @date 2022-08-16
  */
 @Data
-@TableName(value = "t_region_poi", autoResultMap = true)
+@TableName(value = "t_poi", autoResultMap = true)
 public class PoiPO {
 
     /**

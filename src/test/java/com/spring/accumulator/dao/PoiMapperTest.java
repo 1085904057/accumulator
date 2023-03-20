@@ -32,8 +32,8 @@ class PoiMapperTest {
 
     @Test
     public void testQuery() {
-        PoiPO aoiPo = poiMapper.selectById(1);
-        System.out.println(aoiPo);
+        PoiPO poiPO = poiMapper.selectGeom(1);
+        System.out.println(poiPO);
     }
 
     @Test

@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.spring.accumulator.entity.PoiPO;
 import com.spring.accumulator.model.vo.VectorTile;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 /**
@@ -27,5 +28,14 @@ public interface PoiMapper extends BaseMapper<PoiPO> {
             "SELECT ST_AsMVT(mvtgeom.*) as mvt\n" +
             "FROM mvtgeom"})
     VectorTile selectVectorTile(Integer z, Integer x, Integer y);
+
+    /**
+     * 这个方法用来测试@Select的形式查询时，geom字段的自定义类型转换生效
+     *
+     * @param id ID
+     * @return PO
+     */
+    @Select("select * from t_poi where id = #{id}")
+    PoiPO selectGeom(@Param("id") Integer id);
 }
 

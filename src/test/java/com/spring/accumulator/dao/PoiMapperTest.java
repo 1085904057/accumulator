@@ -5,6 +5,7 @@ import com.spring.accumulator.model.vo.VectorTile;
 import org.junit.jupiter.api.Test;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.GeometryFactory;
+import org.locationtech.jts.geom.Point;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
@@ -25,8 +26,8 @@ class PoiMapperTest {
         aoiPo.setId(1);
         aoiPo.setName("兰州牛肉面");
         aoiPo.setAddress("北京市大兴区亦庄镇");
-        aoiPo.setGeom(factory.createPoint(new Coordinate(116.3, 25.7)));
-        poiMapper.insert(aoiPo);
+        aoiPo.setGeom(null);
+        poiMapper.updateById(aoiPo);
         System.out.println(aoiPo.getId());
     }
 

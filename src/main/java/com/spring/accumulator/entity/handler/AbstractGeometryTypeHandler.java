@@ -39,9 +39,14 @@ public abstract class AbstractGeometryTypeHandler<T extends Geometry> extends Ba
 
     @Override
     public void setNonNullParameter(PreparedStatement ps, int i, T parameter, JdbcType jdbcType) throws SQLException {
-        PGgeometry pGgeometry = new PGgeometry(WRITER_POOL.get().write(parameter));
-        org.postgis.Geometry geometry = pGgeometry.getGeometry();
-        geometry.setSrid(SRID_IN_DB);
+        PGgeometry pGgeometry;
+        if (parameter.isEmpty()) {
+            pGgeometry = null;
+        } else {
+            pGgeometry = new PGgeometry(WRITER_POOL.get().write(parameter));
+            org.postgis.Geometry geometry = pGgeometry.getGeometry();
+            geometry.setSrid(SRID_IN_DB);
+        }
         ps.setObject(i, pGgeometry);
     }
 
